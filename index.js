@@ -9,24 +9,29 @@
 // server.listen(3000)
 // console.log(`Server on port ${3000}`);
 
+
 const express = require('express')
 
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('Hello world')
+app.get('/products', (req, res)=>{
+    res.send('lista de productos')
 })
 
-app.get('/about', (req, res) => {
-    res.send('About')
+app.post('/products', (req, res)=>{
+    res.send('Creando productos...')
 })
 
-app.get('/weather', (req, res) => {
-    res.send('The current weather is Nice')
+app.put('/products', (req, res)=>{
+    res.send('Actualizando productos...')
 })
 
-app.use((req, res) => {
-    res.status(404).send('No se encontro tu pagina')
+app.delete('/products', (req, res)=>{
+    res.send('Eliminando un producto...')
+})
+
+app.patch('/products', (req, res)=>{
+    res.send('Actualizando productos...')
 })
 
 app.listen(3000)
